@@ -1,0 +1,4 @@
+fse:
+  storage:
+    es:
+      server: http://localhost:9200
