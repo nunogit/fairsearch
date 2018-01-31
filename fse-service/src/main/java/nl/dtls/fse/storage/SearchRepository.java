@@ -20,17 +20,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package nl.dtls.fse.service;
+package nl.dtls.fse.storage;
 
-import java.net.URL;
 import java.util.Collection;
 
 import nl.dtls.fse.model.SearchResult;
 
-public interface SearchService {
+public interface SearchRepository {
 	Collection<SearchResult> search(String query);
 
 	Collection<Object> list();
-
-	void crawl(URL endpoint);
 }

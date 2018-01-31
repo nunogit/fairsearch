@@ -37,7 +37,6 @@ import java.util.Vector;
 import javax.activation.MimeType;
 
 import nl.dtl.fairmetadata4j.io.CatalogMetadataParser;
-import nl.dtl.fairmetadata4j.io.CatalogMetadataParserTest;
 import nl.dtl.fairmetadata4j.io.DatasetMetadataParser;
 import nl.dtl.fairmetadata4j.io.DistributionMetadataParser;
 import nl.dtl.fairmetadata4j.io.FDPMetadataParser;
@@ -46,7 +45,6 @@ import nl.dtl.fairmetadata4j.model.CatalogMetadata;
 import nl.dtl.fairmetadata4j.model.DatasetMetadata;
 import nl.dtl.fairmetadata4j.model.DistributionMetadata;
 import nl.dtl.fairmetadata4j.model.FDPMetadata;
-import nl.dtl.fairmetadata4j.utils.ExampleFilesUtils;
 import nl.dtl.fairsearchengine.util.FdpParser;
 import nl.dtl.fairsearchengine.util.HttpURLConnect;
 import nl.dtl.fairsearchengine.util.JsonString;
@@ -232,14 +230,7 @@ public class Crawler {
         return content;
     } 
     
-    public static String humanReadableByteCount(long bytes, boolean si) {
-        int unit = si ? 1000 : 1024;
-        if (bytes < unit) return bytes + " B";
-        int exp = (int) (Math.log(bytes) / Math.log(unit));
-        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp-1) + (si ? "" : "i");
-        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
-    }
-    
+
     public static String convertLicenseURIToAcronym(String uri){
     	Map<String, String> map = new HashMap<String, String>();
     	

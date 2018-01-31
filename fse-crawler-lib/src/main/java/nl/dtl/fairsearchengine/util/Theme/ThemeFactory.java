@@ -29,7 +29,6 @@ import nl.dtl.fairmetadata4j.model.FDPMetadata;
 import nl.dtl.fairmetadata4j.utils.RDFUtils;
 import nl.dtl.fairsearchengine.util.HttpURLConnect;
 
-import org.openrdf.model.vocabulary.*;
 
 public class ThemeFactory {
 	
