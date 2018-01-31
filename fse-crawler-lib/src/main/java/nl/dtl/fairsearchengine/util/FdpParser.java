@@ -45,7 +45,7 @@ import nl.dtl.fairmetadata4j.model.CatalogMetadata;
 import nl.dtl.fairmetadata4j.model.DatasetMetadata;
 import nl.dtl.fairmetadata4j.model.DistributionMetadata;
 import nl.dtl.fairmetadata4j.model.FDPMetadata;
-import nl.dtl.fairsearchengine.crawler.Crawler;
+//import nl.dtl.fairsearchengine.crawler.Crawler;
 import nl.dtl.fairsearchengine.util.esClient.ESClient;
 import nl.dtl.fairsearchengine.util.esClient.JestESClient;
 
@@ -408,7 +408,7 @@ public class FdpParser {
 					   		//int size = this.getFileSize(new URL( "http://www.sapo.pt/" ));
 					   		System.out.println("********* ******* ******** SIZE: "+size);
 					   		distributionMap.put( "downloadSize", size + "" );
-					   		distributionMap.put( "downloadHumanReadableSize", Crawler.humanReadableByteCount(size, false) );
+					   		distributionMap.put( "downloadHumanReadableSize", FdpParser.humanReadableByteCount(size, false) );
 					   }
 					   
 					   
@@ -593,5 +593,14 @@ public class FdpParser {
 	        conn.disconnect();
 	    }
 	}
+        
+            public static String humanReadableByteCount(long bytes, boolean si) {
+        int unit = si ? 1000 : 1024;
+        if (bytes < unit) return bytes + " B";
+        int exp = (int) (Math.log(bytes) / Math.log(unit));
+        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp-1) + (si ? "" : "i");
+        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
+    }
+    
 	
 }
